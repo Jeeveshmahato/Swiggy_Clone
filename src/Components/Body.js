@@ -1,3 +1,4 @@
+
 import Card from "./Card";
 import { restaurantList } from "../utils/restaurantList";
 import { useState } from "react";
@@ -30,3 +31,4 @@ const Body = () => {
   );
 };
 export default Body;
+

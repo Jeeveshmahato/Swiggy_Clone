@@ -1,4 +1,6 @@
+
 import { restaurantList } from "../utils/restaurantList";
+
 
 const Card = (props) => {
     const { data } = props;
