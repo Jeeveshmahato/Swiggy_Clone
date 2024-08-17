@@ -1,17 +1,17 @@
-
 import { restaurantList } from "../utils/restaurantList";
+import { imgLink } from "../utils/link";
 
+const Card = ({ data }) => {
+  // console.log(data);
+  // const { data } = props;
+  return (
+    <div className="card">
+      <img className="card-img" src={imgLink + data.cloudinaryImageId} alt="card" />
+      <h2>{data.name}</h2>
+      <p>{data.avgRating}</p>
 
-const Card = (props) => {
-    const { data } = props;
-    return (
-      <div className="card">
-        <img src={"IMG_CDN_URL +data.cloudinaryImageId"} alt="card" />
-        <h2>{data.name}</h2>
-        <p>{data.area}</p>
-        <p>{data.slugs.city}</p>
-        <button>{"price is"+data.costForTwo / 100+"only"}</button>
-      </div>
-    );
-  };
-  export default Card;
+      <button>{data.costForTwo}</button>
+    </div>
+  );
+};
+export default Card;
