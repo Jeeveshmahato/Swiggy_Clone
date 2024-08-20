@@ -1,6 +1,7 @@
 import Card from "./Card";
 import { restaurantList } from "../utils/restaurantList";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 const Body = () => {
   // this is array is structuring
   const [firstList, setfirstList] = useState([]);
@@ -21,11 +22,20 @@ const Body = () => {
     );
     const json = await data.json();
     console.log(
-      json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants
+      json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
-    setfirstList( json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
-    setCopyList( json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
-    console.log(setfirstList( json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants));
+    setfirstList(
+      json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    setCopyList(
+      json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    );
+    console.log(
+      setfirstList(
+        json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
+      )
+    );
   };
   useEffect(() => {
     fecthdat();
@@ -69,7 +79,10 @@ const Body = () => {
       <input type="text" className=""></input>
       <div className="cards">
         {copyList.map((res) => (
-          <Card key={res.info.id} data={res.info} />
+          <Link key={res.info.id} to={"resturant/" + res.info.id}>
+            {" "}
+            <Card data={res.info} />
+          </Link>
         ))}
       </div>
     </div>
