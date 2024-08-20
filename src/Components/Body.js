@@ -2,6 +2,7 @@ import Card from "./Card";
 import { restaurantList } from "../utils/restaurantList";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useOnlineOffline from "../utils/useOnlineOffline";
 const Body = () => {
   // this is array is structuring
   const [firstList, setfirstList] = useState([]);
@@ -44,7 +45,10 @@ const Body = () => {
   // if (firstList.length === 0) {
   //   return <h1>Loading...</h1>;
   // }
-
+  const status = useOnlineOffline();
+  if (status === false) {
+    return <h1>Your are Offline ,Kindly please check your connection</h1>;
+  }
   return firstList.length === 0 ? (
     <h1>Loading...</h1>
   ) : (
@@ -76,7 +80,6 @@ const Body = () => {
       <button onClick={bih} className="best-btn">
         Best options
       </button>
-      <input type="text" className=""></input>
       <div className="cards">
         {copyList.map((res) => (
           <Link key={res.info.id} to={"resturant/" + res.info.id}>
