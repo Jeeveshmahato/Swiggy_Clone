@@ -3,34 +3,39 @@ class UserClass extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      count: 0,
-      count2: 2,
+      user: {
+        movie: "",
+      },
     };
-    console.log(this.props.name + "Child Cons");
+    console.log("constructor");
   }
-  componentDidMount() {
-    console.log(this.props.name + "Child Mount");
+  async componentDidMount() {
+    const data = await fetch("https://dummyapi.online/api/movies");
+    const json = await data.json();
+    // console.log(json[0]);
+    this.setState({
+      user: json[0],
+    });
+    console.log("mont");
+   this.timer = setInterval(() => {
+      console.log("setinterval");
+    }, 10000);
+  }
+  componentWillUnmount() {
+    clearInterval(this.timer);
+    console.log("Child un");
   }
 
+  componentDidUpdate() {
+    console.log("update");
+  }
   render() {
-    console.log(this.props.name + "Child render");
-    const { name } = this.props;
-    const { count, count2 } = this.state;
+    console.log("render");
+    const { movie, rating } = this.state.user;
     return (
       <div>
-        <h1>User Profile</h1>
-        <p>Name: {name}</p>
-        <p>Email: {count}</p>
-        <button
-          onClick={() => {
-            this.setState({
-              count: this.state.count + 1,
-            });
-          }}
-        >
-          Click me
-        </button>
-        <p>Age: {count2}</p>
+        <h1>{movie}</h1>
+        <p>{rating}</p>
       </div>
     );
   }
