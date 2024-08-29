@@ -6,10 +6,10 @@ const Header = () => {
   const status = useOnlineOffline();
   const [BtnName, setBtnName] = useState("Login");
   return (
-    <div className="header ">
-      <img src="assests/1600w-4rQv_oY-CF8.webp" alt="logo" />
+    <div className=" flex justify-between items-center px-20 ">
+      <img className=" w-[150px] h-[150px]" src="https://img.freepik.com/premium-vector/modern-restaurant-logo-design-template_872774-98.jpg" alt="logo" />
       <div className="lists">
-        <ul>
+        <ul className="flex gap-4 items-center">
           <li>status:{status ? "🟢" : "🔴"}</li>
           <li>
             <Link to="/">Home</Link>

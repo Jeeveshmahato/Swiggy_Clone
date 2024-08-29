@@ -5,8 +5,8 @@ const Card = ({ data }) => {
   // console.log(data);
   // const { data } = props;
   return (
-    <div className="card">
-      <img className="card-img" src={imgLink + data.cloudinaryImageId} alt="card" />
+    <div className="card w-fit px-6 py-4">
+      <img className="w-48 h-[100px]  self-stretch" src={imgLink + data.cloudinaryImageId} alt="card" />
       <h2>{data.name}</h2>
       <p>{data.avgRating}</p>
 
