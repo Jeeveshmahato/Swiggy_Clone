@@ -52,7 +52,7 @@ const Body = () => {
   return firstList.length === 0 ? (
     <h1>Loading...</h1>
   ) : (
-    <div className="body">
+    <div className=" flex flex-col items-center justify-center gap-5">
       <h1>Welcome to our website</h1>
       <p>This resturant is all your's now.💕</p>
       <div className="search-box">
@@ -72,15 +72,15 @@ const Body = () => {
             );
             setCopyList(filtered);
           }}
-          className="search-btn"
+          className="search-btn px-5 py-2"
         >
           Search
         </button>
       </div>
-      <button onClick={bih} className="best-btn">
+      <button onClick={bih} className="best-btn px-5 py-2">
         Best options
       </button>
-      <div className="cards">
+      <div className="cards flex items-center justify-center gap-5 flex-wrap">
         {copyList.map((res) => (
           <Link key={res.info.id} to={"resturant/" + res.info.id}>
             {" "}
