@@ -8,7 +8,7 @@ const Menu = () => {
   const params = useParams();
   console.log(params);
   const menu = useMenu(resid);
- 
+
   if (menu.length === 0) {
     return <h1>Loading...</h1>;
   }
@@ -16,14 +16,13 @@ const Menu = () => {
   const { itemCards } =
     menu.data?.cards[4].groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card
       ?.card;
-  console.log(itemCards);
+  console.log(menu.data?.cards[4].groupedCard?.cardGroupMap?.REGULAR);
   return (
     <div>
       <h2>{name}</h2>
       <p>{cuisines.join(",")}</p>
       <ul>
         {itemCards.map((res) => {
-          console.log(res.card.info.id);
 
           return (
             <li key={res.card.info.id}>

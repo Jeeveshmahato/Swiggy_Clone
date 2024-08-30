@@ -1,4 +1,4 @@
-import Card from "./Card";
+import Card, { RatCard } from "./Card";
 import { restaurantList } from "../utils/restaurantList";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -8,13 +8,13 @@ const Body = () => {
   const [firstList, setfirstList] = useState([]);
   const [copyList, setCopyList] = useState([]);
   const [SearchText, setsearchText] = useState("");
-
+  const RatedCard = RatCard(Card);
   // const arr  =useState(restaurantList);
   // const  [firstList, setfirstList]  = arr;
   // const firstList = arr[0];
   // const setfirstList = arr[1];
   const bih = () => {
-    let firstt = firstList.filter((res) => res.info.avgRating >= 4);
+    let firstt = firstList.filter((res) => res.info.avgRating >= 4.2);
     setCopyList(firstt);
   };
   const fecthdat = async () => {
@@ -30,12 +30,6 @@ const Body = () => {
     );
     setCopyList(
       json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    );
-    console.log(
-      setfirstList(
-        json.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants
-      )
     );
   };
   useEffect(() => {
@@ -83,8 +77,11 @@ const Body = () => {
       <div className="cards flex items-center justify-center gap-5 flex-wrap">
         {copyList.map((res) => (
           <Link key={res.info.id} to={"resturant/" + res.info.id}>
-            {" "}
-            <Card data={res.info} />
+            {res.info.avgRating > 4.2 ? (
+              <RatedCard data={res.info} />
+            ) : (
+              <Card data={res.info} />
+            )}
           </Link>
         ))}
       </div>
