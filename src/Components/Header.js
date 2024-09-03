@@ -1,13 +1,19 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineOffline from "../utils/useOnlineOffline";
+import Username from "../utils/UserContext";
 
 const Header = () => {
   const status = useOnlineOffline();
   const [BtnName, setBtnName] = useState("Login");
+  const { localUser } = useContext(Username);
   return (
     <div className=" flex justify-between items-center px-20 ">
-      <img className=" w-[150px] h-[150px]" src="https://img.freepik.com/premium-vector/modern-restaurant-logo-design-template_872774-98.jpg" alt="logo" />
+      <img
+        className=" w-[150px] h-[150px]"
+        src="https://img.freepik.com/premium-vector/modern-restaurant-logo-design-template_872774-98.jpg"
+        alt="logo"
+      />
       <div className="lists">
         <ul className="flex gap-4 items-center">
           <li>status:{status ? "🟢" : "🔴"}</li>
@@ -23,14 +29,19 @@ const Header = () => {
           <li>
             <Link to="/grocery">Grocery</Link>
           </li>
-          <button
-            className="login"
-            onClick={() => {
-              BtnName === "Login" ? setBtnName("Logout") : setBtnName("Login");
-            }}
-          >
-            {BtnName}
-          </button>
+          <li className=" flex gap-3">
+            <button
+              className="login"
+              onClick={() => {
+                BtnName === "Login"
+                  ? setBtnName("Logout")
+                  : setBtnName("Login");
+              }}
+            >
+              {BtnName}
+            </button>
+            <p>{localUser}</p>
+          </li>
         </ul>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useEffect, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./Components/Header";
 import Body from "./Components/Body";
@@ -7,13 +7,24 @@ import Contactus from "./Components/ContactUs";
 import AboutUs from "./Components/AboutUs";
 import Menu from "./Components/Menu";
 import Error from "./Components/Error";
-
+import Username from "./utils/UserContext";
 const Geocory = lazy(() => import("./Components/Grocery"));
 const App = () => {
+  const [usernamelog, setUserNamelog] = useState([]);
+  useEffect(() => {
+    const data ={
+      name: "Mahatma",
+    
+    }
+    setUserNamelog(data.name);
+  }, []);
+
   return (
     <div>
-      <Header />
-      <Outlet />
+     <Username.Provider value={{localUser:usernamelog , setUserNamelog}}>
+     <Header />
+     <Outlet />
+     </Username.Provider>
     </div>
   );
 };
@@ -35,7 +46,7 @@ const appRouter = createBrowserRouter([
         element: <Contactus />,
       },
       {
-        path: "/resturant/:resid",
+        path: "/restaurant/:resid",
         element: <Menu />,
       },
       {
