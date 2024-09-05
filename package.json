@@ -1,9 +1,10 @@
 {
-  "name": "namaste_recat",
+  "name": "namaste_react",
   "version": "1.0.0",
   "description": "",
   "scripts": {
     "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "jest"
   },
   "author": "",
@@ -23,5 +24,4 @@
     "process": "^0.11.10",
     "tailwindcss": "^3.4.10"
   }
-   
 }
