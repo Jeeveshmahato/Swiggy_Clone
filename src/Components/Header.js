@@ -2,11 +2,12 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import useOnlineOffline from "../utils/useOnlineOffline";
 import Username from "../utils/UserContext";
-
+import { useSelector } from "react-redux";
 const Header = () => {
   const status = useOnlineOffline();
   const [BtnName, setBtnName] = useState("Login");
   const { localUser } = useContext(Username);
+  const cart = useSelector((store) => store.cart.items);
   return (
     <div className=" flex justify-between items-center px-20 ">
       <img
@@ -25,6 +26,9 @@ const Header = () => {
           </li>
           <li>
             <Link to="/contactus">Contact</Link>
+          </li>
+          <li className=" text-xl font-semibold">
+            <Link to="/Cart">Cart - {cart.length} items</Link>
           </li>
           <li>
             <Link to="/grocery">Grocery</Link>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CatItems from "./CatItems";
 
-const ResCat = ({ data, show , setShowIndex }) => {
+const ResCat = ({ data, show, setShowIndex }) => {
   // console.log(data);
   handleclick = () => {
     setShowIndex();
@@ -12,13 +12,12 @@ const ResCat = ({ data, show , setShowIndex }) => {
         className=" w-full flex justify-between cursor-pointer  border shadow-xl px-6 py-3 rounded-lg"
         onClick={handleclick}
       >
-        <h3>{data.title}</h3>
+        <h3>
+          {data.title}({data.itemCards.length})
+        </h3>
         <p>🔽</p>
       </div>
-      <div>
-        {show &&
-          data.itemCards.map((res) => <CatItems key={res.title} data={res} />)}
-      </div>
+      <div>{show && <CatItems key={data.title} items={data.itemCards} />} </div>
     </div>
   );
 };
