@@ -2,7 +2,7 @@ import { restaurantList } from "../utils/restaurantList";
 import { imgLink } from "../utils/link";
 
 const Card = ({ data }) => {
-  // console.log(data);
+  console.log(data);
   // const { data } = props;
   return (
     <div className="card w-fit px-6 py-4">

@@ -8,23 +8,27 @@ import AboutUs from "./Components/AboutUs";
 import Menu from "./Components/Menu";
 import Error from "./Components/Error";
 import Username from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./Components/Cart";
 const Geocory = lazy(() => import("./Components/Grocery"));
 const App = () => {
   const [usernamelog, setUserNamelog] = useState([]);
   useEffect(() => {
-    const data ={
+    const data = {
       name: "Mahatma",
-    
-    }
+    };
     setUserNamelog(data.name);
   }, []);
 
   return (
     <div>
-     <Username.Provider value={{localUser:usernamelog , setUserNamelog}}>
-     <Header />
-     <Outlet />
-     </Username.Provider>
+      <Provider store={appStore}>
+        <Username.Provider value={{ localUser: usernamelog, setUserNamelog }}>
+          <Header />
+          <Outlet />
+        </Username.Provider>
+      </Provider>
     </div>
   );
 };
@@ -48,6 +52,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurant/:resid",
         element: <Menu />,
+      },
+      {
+        path: "/Cart",
+        element: <Cart />,
       },
       {
         path: "/grocery",

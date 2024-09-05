@@ -5,7 +5,7 @@ import useMenu from "../utils/useMenu";
 import ResCat from "./ResCat";
 
 const Menu = () => {
-  const [showIndex, setShowIndex] = useState(0)
+  const [showIndex, setShowIndex] = useState(null);
   const { resid } = useParams();
   const params = useParams();
   // console.log(params);
@@ -16,17 +16,27 @@ const Menu = () => {
   }
   const { name, cuisines } = menu?.data?.cards[2]?.card?.card?.info;
   const category =
+    menu?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
+      (e) =>
+        e?.card?.card?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    ) ||
     menu?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
       (e) =>
         e?.card?.card?.["@type"] ===
         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
     );
   // console.log(
-  //   menu?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
+  //   menu?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
   //     (e) =>
   //       e?.card?.card?.["@type"] ===
   //       "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
-  //   )
+  //   ) ||
+  //     menu?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.filter(
+  //       (e) =>
+  //         e?.card?.card?.["@type"] ===
+  //         "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+  //     )
   // );
   return (
     <div className=" w-[60%] mx-auto  flex flex-col  gap-10">
@@ -36,10 +46,10 @@ const Menu = () => {
       </div>
       {category.map((res, index) => (
         <ResCat
-          key={res.card.card.title}
+          key={res?.card?.card?.title}
           data={res?.card?.card}
-          show={index === showIndex }
-          setShowIndex={()=>setShowIndex(index)}
+          show={index === showIndex}
+          setShowIndex={() => setShowIndex(index)}
         />
       ))}
     </div>

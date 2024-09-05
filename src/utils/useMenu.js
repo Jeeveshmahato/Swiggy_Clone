@@ -10,7 +10,7 @@ const useMenu = (resid) => {
     const data = await fetch(menulink + resid);
     const json = await data.json();
     setMenu(json);
-    console.log(menu);
+    // console.log(menu);
   };
   return menu
 };
