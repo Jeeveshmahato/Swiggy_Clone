@@ -8,9 +8,10 @@ const Body = () => {
   const [copyList, setCopyList] = useState([]);
   const [searchText, setSearchText] = useState("");
   const RatedCard = RatCard(Card);
-  const {localUser ,setUserNamelog }= useContext(Username);
+  const { localUser, setUserNamelog } = useContext(Username);
   const bih = () => {
-    const filtered = firstList.filter((res) => res.info.avgRating >= 4.2);
+    const filtered = firstList.filter((res) => res.info.avgRating >= 4.4);
+    // console.log(filtered);
     setCopyList(filtered);
   };
 
@@ -20,7 +21,7 @@ const Body = () => {
         "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.5743545&lng=88.3628734&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
       );
       const json = await response.json();
-      console.log("Full API response:", json);
+      // console.log("Full API response:", json);
       const restaurants =
         json.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants ||
@@ -51,6 +52,7 @@ const Body = () => {
       <p>{localUser}</p>
       <div className="search-box">
         <input
+          data-testid="searchInput"
           type="search"
           placeholder="Search..."
           value={searchText}
@@ -70,13 +72,28 @@ const Body = () => {
         </button>
       </div>
       <div>
-        <input className=" border" value={localUser} onChange={(e)=>{setUserNamelog(e.target.value)}} />
+        <input
+          className=" border"
+          value={localUser}
+          onChange={(e) => {
+            setUserNamelog(e.target.value);
+          }}
+        />
       </div>
-      <button onClick={bih} className="best-btn px-5 py-2">
+      <button
+        data-testid="best_btn"
+        onClick={bih}
+        className="best-btn px-5 py-2 border border-black"
+      >
         Best options
       </button>
-      <div className="cards flex items-center justify-center gap-5 flex-wrap">
-        {copyList.length > 0 ? (
+      <div
+        data-testid="mainresCard"
+        className="cards flex items-center justify-center gap-5 flex-wrap"
+      >
+        {copyList.length === 0 ? (
+          <p>Loading ... </p>
+        ) : (
           copyList.map((res) => (
             <Link key={res.info.id} to={"restaurant/" + res.info.id}>
               {res.info.avgRating > 4.2 ? (
@@ -86,8 +103,6 @@ const Body = () => {
               )}
             </Link>
           ))
-        ) : (
-          <p>Loading ... </p>
         )}
       </div>
     </div>

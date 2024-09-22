@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1727030159339" clover="3.2.0">
+  <project timestamp="1727030159339" name="All files">
+    <metrics statements="105" coveredstatements="98" conditionals="23" coveredconditionals="17" methods="42" coveredmethods="37" elements="170" coveredelements="152" complexity="0" loc="105" ncloc="105" packages="2" files="16" classes="16"/>
+    <package name="Components">
+      <metrics statements="76" coveredstatements="72" conditionals="23" coveredconditionals="17" methods="32" coveredmethods="30"/>
+      <file name="Body.js" path="C:\Users\mahat\Videos\github\namasteReact\Namaste_recat\src\Components\Body.js">
+        <metrics statements="29" coveredstatements="26" conditionals="9" coveredconditionals="7" methods="10" coveredmethods="9"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="16" type="stmt"/>
+        <line num="8" count="16" type="stmt"/>
+        <line num="9" count="16" type="stmt"/>
+        <line num="10" count="16" type="stmt"/>
+        <line num="11" count="16" type="stmt"/>
+        <line num="12" count="16" type="stmt"/>
+        <line num="13" count="18" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="18" count="16" type="stmt"/>
+        <line num="19" count="5" type="stmt"/>
+        <line num="20" count="5" type="stmt"/>
+        <line num="23" count="5" type="stmt"/>
+        <line num="26" count="5" type="cond" truecount="2" falsecount="1"/>
+        <line num="32" count="5" type="stmt"/>
+        <line num="33" count="5" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="39" count="16" type="stmt"/>
+        <line num="40" count="5" type="stmt"/>
+        <line num="43" count="16" type="stmt"/>
+        <line num="44" count="16" type="cond" truecount="1" falsecount="1"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="48" count="16" type="stmt"/>
+        <line num="59" count="2" type="stmt"/>
+        <line num="64" count="2" type="stmt"/>
+        <line num="65" count="18" type="stmt"/>
+        <line num="67" count="2" type="stmt"/>
+        <line num="79" count="0" type="stmt"/>
+        <line num="98" count="71" type="stmt"/>
+      </file>
+      <file name="Card.js" path="C:\Users\mahat\Videos\github\namasteReact\Namaste_recat\src\Components\Card.js">
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="7" count="73" type="stmt"/>
+        <line num="22" count="3" type="stmt"/>
+        <line num="23" count="16" type="stmt"/>
+        <line num="24" count="34" type="stmt"/>
+      </file>
+      <file name="Cart.js" path="C:\Users\mahat\Videos\github\namasteReact\Namaste_recat\src\Components\Cart.js">
+        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
+      </file>
+      <file name="CatItems.js" path="C:\Users\mahat\Videos\github\namasteReact\Namaste_recat\src\Components\CatItems.js">
+        <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="4"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="8" count="4" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="13" count="4" type="stmt"/>
+        <line num="16" count="9" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+      </file>
+      <file name="ContactUs.js" path="C:\Users\mahat\Videos\github\namasteReact\Namaste_recat\src\Components\ContactUs.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="5" type="stmt"/>
+      </file>
+      <file name="Header.js" path="C:\Users\mahat\Videos\github\namasteReact\Namaste_recat\src\Components\Header.js">
+        <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="7" type="stmt"/>
+        <line num="8" count="7" type="stmt"/>
+        <line num="9" count="7" type="stmt"/>
+        <line num="10" count="13" type="stmt"/>
+        <line num="11" count="7" type="stmt"/>
+        <line num="40" count="1" type="cond" truecount="1" falsecount="1"/>
+      </file>
+      <file name="Menu.js" path="C:\Users\mahat\Videos\github\namasteReact\Namaste_recat\src\Components\Menu.js">
+        <metrics statements="14" coveredstatements="13" conditionals="4" coveredconditionals="3" methods="5" coveredmethods="4"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="14" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="19" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="21" count="36" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="41" count="2" type="stmt"/>
+        <line num="48" count="28" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
+      </file>
+      <file name="ResCat.js" path="C:\Users\mahat\Videos\github\namasteReact\Namaste_recat\src\Components\ResCat.js">
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="6" count="28" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="28" type="stmt"/>
+      </file>
+      <file name="sum.js" path="C:\Users\mahat\Videos\github\namasteReact\Namaste_recat\src\Components\sum.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils">
+      <metrics statements="29" coveredstatements="26" conditionals="0" coveredconditionals="0" methods="10" coveredmethods="7"/>
+      <file name="CartSlice.js" path="C:\Users\mahat\Videos\github\namasteReact\Namaste_recat\src\utils\CartSlice.js">
+        <metrics statements="7" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
+      </file>
+      <file name="UserContext.js" path="C:\Users\mahat\Videos\github\namasteReact\Namaste_recat\src\utils\UserContext.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="4" type="stmt"/>
+      </file>
+      <file name="appStore.js" path="C:\Users\mahat\Videos\github\namasteReact\Namaste_recat\src\utils\appStore.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="2" type="stmt"/>
+      </file>
+      <file name="link.js" path="C:\Users\mahat\Videos\github\namasteReact\Namaste_recat\src\utils\link.js">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="4" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+      </file>
+      <file name="restaurantList.js" path="C:\Users\mahat\Videos\github\namasteReact\Namaste_recat\src\utils\restaurantList.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+      </file>
+      <file name="useMenu.js" path="C:\Users\mahat\Videos\github\namasteReact\Namaste_recat\src\utils\useMenu.js">
+        <metrics statements="9" coveredstatements="9" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
+      </file>
+      <file name="useOnlineOffline.js" path="C:\Users\mahat\Videos\github\namasteReact\Namaste_recat\src\utils\useOnlineOffline.js">
+        <metrics statements="8" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+        <line num="3" count="4" type="stmt"/>
+        <line num="4" count="23" type="stmt"/>
+        <line num="6" count="23" type="stmt"/>
+        <line num="7" count="9" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="10" count="9" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="14" count="23" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

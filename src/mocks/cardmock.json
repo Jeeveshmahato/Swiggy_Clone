@@ -1,0 +1,91 @@
+{
+    "id": "689921",
+    "name": "World bar |||",
+    "cloudinaryImageId": "46c3122b71b64adf8e3a69f5b1a620e9",
+    "locality": "Abanindranath",
+    "areaName": "Central Kolkata",
+    "costForTwo": "₹800 for two",
+    "cuisines": [
+        "Healthy Food",
+        "Home Food",
+        "Indian",
+        "Chinese",
+        "Fast Food",
+        "Pizzas",
+        "Pastas",
+        "Kebabs",
+        "Tandoor",
+        "Salads"
+    ],
+    "avgRating": 5,
+    "parentId": "399770",
+    "avgRatingString": "5.0",
+    "totalRatingsString": "5",
+    "promoted": true,
+    "adTrackingId": "cid=18539944~p=0~adgrpid=18539944#ag1~mp=SWIGGY_IN~bl=FOOD~aet=RESTAURANT~aeid=689921~eid=0ca5e7ea-831a-44a5-a87d-64aeb607e81a~srvts=1726767714802~collid=69584",
+    "sla": {
+        "deliveryTime": 36,
+        "lastMileTravel": 4.3,
+        "serviceability": "SERVICEABLE",
+        "slaString": "35-40 mins",
+        "lastMileTravelString": "4.3 km",
+        "iconType": "ICON_TYPE_EMPTY"
+    },
+    "availability": {
+        "nextCloseTime": "2024-09-19 23:15:00",
+        "opened": true
+    },
+    "badges": {},
+    "isOpen": true,
+    "aggregatedDiscountInfoV2": {
+        "header": "10% OFF",
+        "shortDescriptionList": [
+            {
+                "meta": "Use TRYNEW",
+                "discountType": "Percentage",
+                "operationType": "RESTAURANT"
+            }
+        ],
+        "descriptionList": [
+            {
+                "meta": "10% off up to ₹40 | Use code TRYNEW",
+                "discountType": "Percentage",
+                "operationType": "RESTAURANT"
+            }
+        ]
+    },
+    "type": "F",
+    "badgesV2": {
+        "entityBadges": {
+            "imageBased": {},
+            "textBased": {},
+            "textExtendedBadges": {}
+        }
+    },
+    "orderabilityCommunication": {
+        "title": {},
+        "subTitle": {},
+        "message": {},
+        "customIcon": {}
+    },
+    "differentiatedUi": {
+        "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+        "differentiatedUiMediaDetails": {
+            "mediaType": "ADS_MEDIA_ENUM_IMAGE",
+            "lottie": {},
+            "video": {}
+        }
+    },
+    "reviewsSummary": {},
+    "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+    "restaurantOfferPresentationInfo": {},
+    "externalRatings": {
+        "aggregatedRating": {
+            "rating": "4.4",
+            "ratingCount": "423"
+        },
+        "source": "GOOGLE",
+        "sourceIconImageId": "v1704440323/google_ratings/rating_google_tag"
+    },
+    "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+}
