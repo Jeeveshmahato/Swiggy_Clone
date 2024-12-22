@@ -16,7 +16,7 @@ const App = () => {
   const [usernamelog, setUserNamelog] = useState([]);
   useEffect(() => {
     const data = {
-      name: "Mahatma",
+      name: "Guest",
     };
     setUserNamelog(data.name);
   }, []);
