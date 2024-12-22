@@ -5,7 +5,7 @@ const Card = ({ data }) => {
   // console.log(data);
   // const { data } = props;
   return (
-    <div data-testid="resCard"  className="card w-fit px-6 py-4">
+    <div data-testid="resCard"  className="card border w-fit px-6 py-4">
       <img
         className="w-48 h-[100px]  self-stretch"
         src={imgLink + data.cloudinaryImageId}
