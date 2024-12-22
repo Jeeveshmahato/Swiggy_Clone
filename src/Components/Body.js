@@ -66,7 +66,7 @@ const Body = () => {
             );
             setCopyList(filtered);
           }}
-          className="search-btn px-5 py-2"
+          className="search-btn px-5 py-2 border border-black ml-2"
         >
           Search
         </button>
@@ -95,7 +95,7 @@ const Body = () => {
           <p>Loading ... </p>
         ) : (
           copyList.map((res) => (
-            <Link key={res.info.id} to={"restaurant/" + res.info.id}>
+            <Link key={res.info.id} to={"restaurant/" + res.info.id} className="border border-black p-2 rounded-lg" >
               {res.info.avgRating > 4.2 ? (
                 <RatedCard data={res.info} />
               ) : (

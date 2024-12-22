@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <div className=" flex justify-between items-center px-20 ">
       <img
-        className=" w-[150px] h-[150px]"
+        className=" w-[80px] h-[80px]"
         src="https://img.freepik.com/premium-vector/modern-restaurant-logo-design-template_872774-98.jpg"
         alt="logo"
       />
