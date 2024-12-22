@@ -22,7 +22,7 @@ const App = () => {
   }, []);
 
   return (
-    <div class="bg-[#f65000]">
+    <div class="bg-[#f2986f]">
       <Provider store={appStore}>
         <Username.Provider value={{ localUser: usernamelog, setUserNamelog }}>
           <Header />
