@@ -5,7 +5,7 @@ const Card = ({ data }) => {
   // console.log(data);
   // const { data } = props;
   return (
-    <div data-testid="resCard"  className="card border border-black w-fit px-6 py-4">
+    <div data-testid="resCard"  className="card  w-fit px-6 py-4">
       <img
         className="w-48 h-[100px]  self-stretch"
         src={imgLink + data.cloudinaryImageId}
@@ -22,7 +22,7 @@ const Card = ({ data }) => {
 export const RatCard = (Card) => {
   return (props) => {
     return (
-      <div class="border border-black">
+      <div >
         <label>Rated</label>
         <Card {...props} />
       </div>
