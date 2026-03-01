@@ -8,14 +8,14 @@ const ResCat = ({ data, show, setShowIndex }) => {
   return (
     <div className="border-b border-slate-border">
       <div
-        className="flex justify-between items-center py-4 cursor-pointer hover:bg-gray-50 transition-colors px-2 rounded"
+        className="flex justify-between items-center py-3 sm:py-4 cursor-pointer hover:bg-gray-50 active:bg-gray-100 transition-colors px-1 sm:px-2 rounded"
         onClick={handleclick}
       >
-        <h3 className="text-base font-bold text-slate-title">
+        <h3 className="text-sm sm:text-base font-bold text-slate-title">
           {data.title} ({data.itemCards.length})
         </h3>
         <svg
-          className={`w-5 h-5 text-slate-body transition-transform duration-300 ${
+          className={`w-4 h-4 sm:w-5 sm:h-5 text-slate-body transition-transform duration-300 flex-shrink-0 ml-2 ${
             show ? "rotate-180" : ""
           }`}
           fill="none"

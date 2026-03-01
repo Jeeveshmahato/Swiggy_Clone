@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <footer className="bg-slate-title text-gray-300 mt-auto">
-      <div className="max-w-[1200px] mx-auto px-5 py-10 sm:py-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <div className="max-w-[1200px] mx-auto px-3 sm:px-4 md:px-5 py-8 sm:py-10 md:py-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
           {/* Company */}
           <div>
-            <h4 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">
+            <h4 className="text-white font-semibold text-xs sm:text-sm mb-3 sm:mb-4 uppercase tracking-wider">
               Company
             </h4>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm">
               <li>
                 <Link to="/about" className="hover:text-white transition-colors">
                   About Us
@@ -31,10 +31,10 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">
+            <h4 className="text-white font-semibold text-xs sm:text-sm mb-3 sm:mb-4 uppercase tracking-wider">
               Contact Us
             </h4>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm">
               <li>
                 <Link to="/contactus" className="hover:text-white transition-colors">
                   Help & Support
@@ -55,10 +55,10 @@ const Footer = () => {
 
           {/* Legal */}
           <div>
-            <h4 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">
+            <h4 className="text-white font-semibold text-xs sm:text-sm mb-3 sm:mb-4 uppercase tracking-wider">
               Legal
             </h4>
-            <ul className="space-y-2.5 text-sm">
+            <ul className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm">
               <li>
                 <a href="#" className="hover:text-white transition-colors">
                   Terms & Conditions
@@ -79,7 +79,7 @@ const Footer = () => {
 
           {/* Social */}
           <div>
-            <h4 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">
+            <h4 className="text-white font-semibold text-xs sm:text-sm mb-3 sm:mb-4 uppercase tracking-wider">
               Social Links
             </h4>
             <div className="flex gap-3">
@@ -102,7 +102,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-700 mt-8 sm:mt-10 pt-6 text-center text-xs text-gray-500">
+        <div className="border-t border-gray-700 mt-6 sm:mt-8 md:mt-10 pt-4 sm:pt-6 text-center text-[10px] sm:text-xs text-gray-500">
           &copy; 2026 Swiggy Clone. For educational purposes only.
         </div>
       </div>
