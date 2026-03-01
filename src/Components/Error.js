@@ -1,11 +1,25 @@
-import { useRouteError } from "react-router-dom";
+import { Link, useRouteError } from "react-router-dom";
+
 const Error = () => {
-    const error = useRouteError();
+  const error = useRouteError();
   return (
-    <div>
-      <h1>Ooops....</h1>
-      <p>The page you are looking for could not be found.</p>
-      <h3>{error.status}:{error.statusText}</h3>
+    <div className="min-h-[60vh] flex flex-col items-center justify-center px-5 text-center">
+      <h1 className="text-7xl font-extrabold text-swiggy-orange mb-4">
+        {error?.status || "404"}
+      </h1>
+      <h2 className="text-2xl font-bold text-slate-title mb-2">
+        {error?.statusText || "Page Not Found"}
+      </h2>
+      <p className="text-slate-muted mb-8 max-w-md">
+        The page you are looking for might have been removed, had its name
+        changed, or is temporarily unavailable.
+      </p>
+      <Link
+        to="/"
+        className="bg-swiggy-orange text-white font-semibold text-sm px-6 py-3 rounded-lg hover:bg-swiggy-orange-dark transition-colors shadow-button"
+      >
+        GO TO HOME
+      </Link>
     </div>
   );
 };
