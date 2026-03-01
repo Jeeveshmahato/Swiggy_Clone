@@ -32,6 +32,11 @@ const Body = () => {
   const [isFiltered, setIsFiltered] = useState(false);
 
   const sentinelRef = useRef(null);
+  // Refs to avoid stale closures in IntersectionObserver callback
+  const isLoadingMoreRef = useRef(false);
+  const hasMoreRef = useRef(true);
+  const pageOffsetRef = useRef(null);
+  const isFilteredRef = useRef(false);
   const RatedCard = RatCard(Card);
   const { localUser, setUserNamelog } = useContext(Username);
 
@@ -68,7 +73,9 @@ const Body = () => {
 
       // Extract pagination offset from response
       const offset = json.data?.pageOffset || null;
+      pageOffsetRef.current = offset;
       setPageOffset(offset);
+      hasMoreRef.current = !!offset?.nextOffset;
       setHasMore(!!offset?.nextOffset);
 
       setAllRestaurants(restaurants);
@@ -80,20 +87,31 @@ const Body = () => {
     }
   };
 
+  // Stable fetch function — reads mutable refs instead of stale closure state.
+  // This prevents the IntersectionObserver from being torn down and recreated
+  // on every state change, which was causing the infinite reconnect cycle.
   const fetchMoreRestaurants = useCallback(async () => {
-    if (isLoadingMore || !hasMore || !pageOffset?.nextOffset || isFiltered)
+    if (
+      isLoadingMoreRef.current ||
+      !hasMoreRef.current ||
+      !pageOffsetRef.current?.nextOffset ||
+      isFilteredRef.current
+    )
       return;
 
     try {
+      isLoadingMoreRef.current = true;
       setIsLoadingMore(true);
+
+      const currentOffset = pageOffsetRef.current;
       const response = await fetch(SWIGGY_UPDATE_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           lat: parseFloat(LAT),
           lng: parseFloat(LNG),
-          nextOffset: pageOffset.nextOffset,
-          widgetOffset: pageOffset.widgetOffset || null,
+          nextOffset: currentOffset.nextOffset,
+          widgetOffset: currentOffset.widgetOffset || null,
           seoParams: {
             apiName: "FoodHomePage",
             pageType: "FOOD_HOMEPAGE",
@@ -108,12 +126,15 @@ const Body = () => {
           ?.restaurants || [];
 
       if (newRestaurants.length === 0) {
+        hasMoreRef.current = false;
         setHasMore(false);
         return;
       }
 
       const newOffset = json.data?.pageOffset || null;
+      pageOffsetRef.current = newOffset;
       setPageOffset(newOffset);
+      hasMoreRef.current = !!newOffset?.nextOffset;
       setHasMore(!!newOffset?.nextOffset);
 
       setAllRestaurants((prev) => {
@@ -128,30 +149,24 @@ const Body = () => {
         const unique = newRestaurants.filter(
           (r) => !existingIds.has(r.info.id)
         );
-        const filtered = applyCurrentFilters(unique);
-        return [...prev, ...filtered];
+        return [...prev, ...unique];
       });
     } catch (error) {
       console.error("Error fetching more restaurants:", error);
     } finally {
+      isLoadingMoreRef.current = false;
       setIsLoadingMore(false);
     }
-  }, [
-    isLoadingMore,
-    hasMore,
-    pageOffset,
-    isFiltered,
-    applyCurrentFilters,
-  ]);
+  }, []); // Stable — no deps, reads from refs
 
-  // IntersectionObserver for infinite scroll
+  // IntersectionObserver for infinite scroll — set up once, stays stable
   useEffect(() => {
     const sentinel = sentinelRef.current;
     if (!sentinel) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && hasMore && !isLoadingMore && !isFiltered) {
+        if (entry.isIntersecting) {
           fetchMoreRestaurants();
         }
       },
@@ -160,7 +175,7 @@ const Body = () => {
 
     observer.observe(sentinel);
     return () => observer.disconnect();
-  }, [fetchMoreRestaurants, hasMore, isLoadingMore, isFiltered]);
+  }, [fetchMoreRestaurants]);
 
   useEffect(() => {
     fetchData();
@@ -171,6 +186,7 @@ const Body = () => {
     if (allRestaurants.length === 0) return;
     const anyFilterActive =
       activeFilter !== null || searchText.trim() !== "";
+    isFilteredRef.current = anyFilterActive;
     setIsFiltered(anyFilterActive);
     setFilteredList(applyCurrentFilters(allRestaurants));
   }, [activeFilter, searchText, allRestaurants, applyCurrentFilters]);
@@ -192,6 +208,7 @@ const Body = () => {
     setFilteredList(allRestaurants);
     setActiveFilter(null);
     setSearchText("");
+    isFilteredRef.current = false;
     setIsFiltered(false);
   };
 
@@ -379,19 +396,24 @@ const Body = () => {
               .map((_, i) => <ShimmerCard key={`loading-${i}`} />)}
         </div>
 
-        {/* Sentinel for infinite scroll */}
-        {hasMore && !isFiltered && !isInitialLoading && (
-          <div ref={sentinelRef} className="flex justify-center py-8">
-            {isLoadingMore && (
-              <div className="flex items-center gap-3">
-                <div className="w-6 h-6 border-2 border-swiggy-orange border-t-transparent rounded-full animate-spin" />
-                <span className="text-slate-muted text-sm">
-                  Loading more restaurants...
-                </span>
-              </div>
-            )}
-          </div>
-        )}
+        {/* Sentinel for infinite scroll — always rendered so the ref stays attached */}
+        <div
+          ref={sentinelRef}
+          className="flex justify-center py-8"
+          style={{
+            display:
+              hasMore && !isFiltered && !isInitialLoading ? "flex" : "none",
+          }}
+        >
+          {isLoadingMore && (
+            <div className="flex items-center gap-3">
+              <div className="w-6 h-6 border-2 border-swiggy-orange border-t-transparent rounded-full animate-spin" />
+              <span className="text-slate-muted text-sm">
+                Loading more restaurants...
+              </span>
+            </div>
+          )}
+        </div>
 
         {/* No results state */}
         {!isInitialLoading && filteredList.length === 0 && (
